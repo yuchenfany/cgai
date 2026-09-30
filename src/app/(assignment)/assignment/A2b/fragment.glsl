@@ -167,6 +167,20 @@ float sdfCow(vec3 p)
     //// your implementation ends
 }
 
+float sdfDuck(vec3 p)
+{
+    p = rotate(p, vec3(1., 0., 0.), PI / 2.);
+    p = rotate(p, vec3(0., 0., 1.), PI / 3. + PI/3.0);
+
+    // sdf is undefined outside the unit sphere, uncomment to witness the abominations
+    if(length(p) > 1.)
+    {
+        return length(p) - 0.9;
+    }
+
+    // PASTE 
+}
+
 float sdfUnion(float d1, float d2)
 {
     return min(d1, d2);
